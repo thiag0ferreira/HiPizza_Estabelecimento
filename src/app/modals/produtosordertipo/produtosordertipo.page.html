@@ -1,0 +1,21 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>Ordenar Tipos</ion-title>
+    <ion-button (click)="closeModal()" slot="end" fill="clear" shape="round">
+      <ion-icon slot="icon-only" name="close"></ion-icon>
+    </ion-button>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-reorder-group (ionItemReorder)="doReorder($event)" disabled="false">
+    <!-- Default reorder icon, end aligned items -->
+    <ion-item *ngFor="let t of tipos">
+      <ion-label>
+        {{t.nome}}
+      </ion-label>
+      <ion-reorder slot="end"></ion-reorder>
+    </ion-item>
+    
+  </ion-reorder-group>
+</ion-content>

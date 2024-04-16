@@ -1,0 +1,31 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>Atendente</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <div style="width: 100%; text-align: center;">
+    <br>
+    <img src="assets/HiPizzaLogo.png">
+    <br>
+    <ion-item [ngClass]="grande ? 'espacoGrande' : 'espacoPequeno'">
+      <ion-label position="floating">Id Estabelecimento</ion-label>
+      <ion-input [(ngModel)] = "tIdStab" id="tIdStab" required type="number"></ion-input>
+    </ion-item>
+    <ion-item [ngClass]="grande ? 'espacoGrande' : 'espacoPequeno'">
+      <ion-label position="floating">Login</ion-label>
+      <ion-input [(ngModel)] = "tLogin" id="tLogin" required type="text"></ion-input>
+    </ion-item>
+    <ion-item [ngClass]="grande ? 'espacoGrande' : 'espacoPequeno'">
+      <ion-label position="floating">Senha</ion-label>
+      <ion-input [(ngModel)] = "tSenha" id="tSenha" required type="password"></ion-input>
+    </ion-item>
+    <ion-item [ngClass]="grande ? 'espacoGrande' : 'espacoPequeno'">
+      <ion-chip color="tertiary" (click)="loginAtendente()">
+        <ion-label>entrar</ion-label>
+        <ion-icon name="checkmark" color="tertiary"></ion-icon>
+      </ion-chip>
+    </ion-item>
+  </div>
+</ion-content>

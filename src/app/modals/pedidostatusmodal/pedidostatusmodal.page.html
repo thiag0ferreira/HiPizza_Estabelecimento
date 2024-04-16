@@ -1,0 +1,15 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>Pedido {{pedNo}} <B>Status: </B>{{nomeStatus}}</ion-title>
+    <ion-button (click)="closeModal()" slot="end" fill="clear" shape="round">
+      <ion-icon slot="icon-only" name="close"></ion-icon>
+    </ion-button>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-item *ngFor="let l of listaStatus">
+    <ion-label>{{l.id}}  - {{l.nome}}</ion-label>
+    <ion-checkbox (click)="marca(l.id)" checked={{l.bol}}></ion-checkbox>
+  </ion-item>
+</ion-content>

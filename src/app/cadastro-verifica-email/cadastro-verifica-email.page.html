@@ -1,0 +1,105 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>Confirmação de Cadastro</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <div style="width: 100%; text-align: center;">
+    <br>
+    <img src="assets/HiPizzaLogo.png">
+    <br>
+    <ion-item class="ion-hide-sm-down" style="padding-left: 30%; padding-right: 30%;">
+      <ion-label >{{razao}}</ion-label>
+    </ion-item>
+    <ion-item class="ion-hide-md-up">
+      <ion-label >{{razao}}</ion-label>
+    </ion-item>
+
+    <ion-item class="ion-hide-sm-down" style="padding-left: 30%; padding-right: 30%;" lines="none">
+      <ion-label position="stacked">Celular</ion-label>
+      <ion-input [(ngModel)] = "tCelular" id="tCelular" required placeholder="Informe seu celular" type="text" (keyup)="formata('tCelular','2')"></ion-input>
+    </ion-item>
+    <ion-item class="ion-hide-md-up">
+      <ion-label position="stacked">Celular</ion-label>
+      <ion-input [(ngModel)] = "tCelular" id="tCelular" required placeholder="Informe seu celular" type="text" (keyup)="formata('tCelular','2')"></ion-input>
+    </ion-item>
+
+    <ion-item class="ion-hide-sm-down" style="padding-left: 30%; padding-right: 30%;" lines="none">
+      <ion-label position="stacked">Login</ion-label>
+      <ion-input [(ngModel)] = "tLogin" id="tLogin" required placeholder="Informe um login para acesso" type="text" (keyup)="formata('tCelular','2')"></ion-input>
+    </ion-item>
+    <ion-item class="ion-hide-md-up">
+      <ion-label position="stacked">Login</ion-label>
+      <ion-input [(ngModel)] = "tLogin" id="tLogin" required placeholder="Informe um login para acesso" type="text" (keyup)="formata('tCelular','2')"></ion-input>
+    </ion-item>
+
+    <ion-item class="ion-hide-sm-down" style="padding-left: 30%; padding-right: 30%;" lines="none">
+      <ion-label position="stacked">Senha</ion-label>
+      <ion-input [(ngModel)] = "tSenha" id="tSenha" required placeholder="Informe uma senha" type="password" (keyup)="formata('tCelular','2')"></ion-input>
+    </ion-item>
+    <ion-item class="ion-hide-md-up">
+      <ion-label position="stacked">Senha</ion-label>
+      <ion-input [(ngModel)] = "tSenha" id="tSenha" required placeholder="Informe uma senha" type="password" (keyup)="formata('tCelular','2')"></ion-input>
+    </ion-item>
+
+    <ion-item class="ion-hide-sm-down" style="padding-left: 30%; padding-right: 30%;" lines="none">
+      <ion-label position="stacked">Confirmação de Senha</ion-label>
+      <ion-input [(ngModel)] = "tSenha2" id="tSenha2" required placeholder="Confirme a senha" type="password" (keyup)="formata('tCelular','2')"></ion-input>
+    </ion-item>
+    <ion-item class="ion-hide-md-up">
+      <ion-label position="stacked">Confirmação de Senha</ion-label>
+      <ion-input [(ngModel)] = "tSenha2" id="tSenha2" required placeholder="Confirme a senha" type="password" (keyup)="formata('tCelular','2')"></ion-input>
+    </ion-item>
+
+  
+    <ion-item class="ion-hide-sm-down" style="padding-left: 30%; padding-right: 30%;" lines="none">
+      <ion-label >{{nome}}, um e-mail foi enviado para você</ion-label>
+    </ion-item>
+    <ion-item class="ion-hide-sm-down" style="padding-left: 30%; padding-right: 30%;" lines="none">
+      <ion-label >com um token de validação</ion-label>
+    </ion-item>
+    <ion-item class="ion-hide-sm-down" style="padding-left: 30%; padding-right: 30%;" lines="none">
+      <ion-label >Informe-o abaixo</ion-label>
+    </ion-item>
+    <ion-item class="ion-hide-md-up" lines="none">
+      <ion-label >{{nome}}, um e-mail foi enviado</ion-label>
+    </ion-item>
+    <ion-item class="ion-hide-md-up" lines="none">
+      <ion-label >para você com um token de validação</ion-label>
+    </ion-item>
+    <ion-item class="ion-hide-md-up" lines="none">
+      <ion-label >Informe-o abaixo</ion-label>
+    </ion-item>
+
+    <ion-item class="ion-hide-sm-down" style="padding-left: 30%; padding-right: 30%;">
+      <ion-label position="stacked">Token recebido</ion-label>
+      <ion-input [(ngModel)] = "tToken" id="tToken" required placeholder="Informe o token aqui" type="text"></ion-input>
+    </ion-item>
+    <ion-item class="ion-hide-md-up">
+      <ion-label position="stacked">Token recebido</ion-label>
+      <ion-input [(ngModel)] = "tToken" id="tToken" required placeholder="Informe o token aqui" type="text"></ion-input>
+    </ion-item>
+
+    <br>
+    <div style="width: 100%; text-align: center;">
+      <ion-button (click)="cadastrarEmail()" color="tertiary" shape="round">
+        Confirmar
+      </ion-button>
+    </div>
+    <br>
+    <div style="width: 100%; text-align: center;">
+      <ion-button (click)="mudarEmail()" color="danger" shape="round">
+        Esse não é meu e-mail
+      </ion-button>
+    </div>
+    <br>
+    <div style="width: 100%; text-align: center;">
+      <ion-button (click)="goInicio()" color="warning" shape="round">
+        Recadastrar do início
+      </ion-button>
+    </div>
+
+  </div>
+
+</ion-content>

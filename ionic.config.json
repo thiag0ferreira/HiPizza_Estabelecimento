@@ -1,0 +1,8 @@
+{
+  "name": "HiPizzaEstabelecimentos",
+  "integrations": {
+    "cordova": {},
+    "capacitor": {}
+  },
+  "type": "angular"
+}

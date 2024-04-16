@@ -1,0 +1,25 @@
+<ion-header>
+  <ion-toolbar>
+    <img src="assets/logo_titulo.jpg" slot="start">
+    <h3 style="padding-left: 10px;">Já Sou Cadastrado</h3>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-item>
+    <ion-label>Seu Login</ion-label>
+    <ion-input [(ngModel)]="tLogin" type="text" placeholder="informe aqui"></ion-input>
+  </ion-item>
+
+  <ion-item>
+    <ion-label>Sua Senha</ion-label>
+    <ion-input [(ngModel)]="tSenha" type="password" placeholder="informe aqui"></ion-input>
+  </ion-item>
+
+  <ion-item>
+    <ion-chip (click)="recuperaDados()" color="primary">
+      <ion-label>Enviar</ion-label>
+      <ion-icon name="checkmark-outline" color="tertiary"></ion-icon>
+    </ion-chip>
+  </ion-item>
+</ion-content>

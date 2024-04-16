@@ -1,0 +1,73 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>Cadastro inicial</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <div style="width: 100%; text-align: center;">
+    <br>
+    <img src="assets/HiPizzaLogo.png">
+    <br>
+    <ion-item class="ion-hide-sm-down" style="padding-left: 30%; padding-right: 30%;">
+      <ion-label position="stacked">Razão Social</ion-label>
+      <ion-input [(ngModel)] = "tRazao" id="tRazao" required type="text"></ion-input>
+    </ion-item>
+    <ion-item class="ion-hide-md-up">
+      <ion-label position="stacked">Razão Social</ion-label>
+      <ion-input [(ngModel)] = "tRazao" id="tRazao" required type="text"></ion-input>
+    </ion-item>
+
+    <ion-item class="ion-hide-sm-down" style="padding-left: 30%; padding-right: 30%;">
+      <ion-label position="stacked">Nome Fantasia</ion-label>
+      <ion-input [(ngModel)] = "tFantasia" id="tFantasia" required type="text"></ion-input>
+    </ion-item>
+    <ion-item class="ion-hide-md-up">
+      <ion-label position="stacked">Nome Fantasia</ion-label>
+      <ion-input [(ngModel)] = "tFantasia" id="tFantasia" required type="text"></ion-input>
+    </ion-item>
+
+    <ion-item class="ion-hide-sm-down" style="padding-left: 30%; padding-right: 30%;">
+      <ion-label position="stacked">CNPJ</ion-label>
+      <ion-input [(ngModel)] = "tCnpj" id="tCnpj" required type="text" (keyup)="formata('tCnpj')"></ion-input>
+    </ion-item>
+    <ion-item class="ion-hide-md-up">
+      <ion-label position="stacked">CNPJ</ion-label>
+      <ion-input [(ngModel)] = "tCnpj" id="tCnpj" required type="text" (keyup)="formata('tCnpj')"></ion-input>
+    </ion-item>
+
+    <ion-item class="ion-hide-sm-down" style="padding-left: 30%; padding-right: 30%;">
+      <ion-label position="stacked">E-mail</ion-label>
+      <ion-input [(ngModel)] = "tEmail" id="tEmail" required type="text"></ion-input>
+    </ion-item>
+    <ion-item class="ion-hide-md-up">
+      <ion-label position="stacked">E-mail</ion-label>
+      <ion-input [(ngModel)] = "tEmail" id="tEmail" required type="text"></ion-input>
+    </ion-item>
+
+    <ion-item class="ion-hide-sm-down" style="padding-left: 30%; padding-right: 30%;">
+      <ion-label position="stacked">Seu nome</ion-label>
+      <ion-input [(ngModel)] = "tNome" id="tNome" required type="text"></ion-input>
+    </ion-item>
+    <ion-item class="ion-hide-md-up">
+      <ion-label position="stacked">Seu nome</ion-label>
+      <ion-input [(ngModel)] = "tNome" id="tNome" required type="text"></ion-input>
+    </ion-item>
+
+    <br>
+    <div style="width: 100%; text-align: center;">
+      <ion-button (click)="cadastrarBasico()" color="tertiary" shape="round">
+        Realizar cadastramento
+      </ion-button>
+    </div>
+
+    <br>
+    <div style="width: 100%; text-align: center;">
+      <ion-button (click)="testeEquipe()" color="warning" shape="round">
+        Teste Equipe
+      </ion-button>
+    </div>
+
+  </div>
+
+</ion-content>

@@ -1,0 +1,57 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>
+      <ion-row>
+        <ion-col size="4">Suas Entregas</ion-col>
+        <ion-col size="1" [hidden]="!prv">
+          <ion-button (click)="goTras()" fill="clear" shape="round">
+            <ion-icon name="arrow-back-circle-outline"></ion-icon>
+          </ion-button>
+        </ion-col>
+        <ion-col size="2">
+          &nbsp;
+        </ion-col>
+        <ion-col size="1" [hidden]="!nex">
+          <ion-button (click)="goAdiante()" fill="clear" shape="round">
+            <ion-icon name="arrow-forward-circle-outline"></ion-icon>
+          </ion-button>
+        </ion-col>
+      </ion-row>
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-grid fixed>
+    <div *ngFor="let e of entregas">
+      <ion-row (click)="detalha(e.id)" style="cursor: pointer;">
+        <ion-col size-xs="12" size-sm="12" size-md="6" size-lg="6">
+          {{e.enderecoCliente}}
+        </ion-col>
+        <ion-col size-xs="12" size-sm="12" size-md="6" size-lg="6">
+          {{e.ipCliente.endReferencia}} <B>Data: </B>{{e.dataHoraFormatada}}
+        </ion-col>
+      </ion-row>
+      <ion-row (click)="detalha(e.id)" style="cursor: pointer;">
+        <ion-col size-xs="12" size-sm="12" size-md="6" size-lg="6">
+          <B>Cliente: </B>{{e.nomeCliente}}
+        </ion-col>
+        <ion-col size-xs="12" size-sm="12" size-md="6" size-lg="6">
+          <B>Total: </B>{{e.totalFormatado}} {{e.obsTroco}} <b>Nº </b>{{e.id}}
+        </ion-col>
+      </ion-row>
+      <ion-row (click)="detalha(e.id)" style="cursor: pointer;">
+        <ion-col size-xs="12" size-sm="12" size-md="6" size-lg="6">
+          <B>Formas de pagamento</B>
+        </ion-col>
+      </ion-row>
+      <ion-row *ngFor="let f of e.nomesFormasPagamento" (click)="detalha(e.id)" style="cursor: pointer;">
+        <ion-col size-xs="12" size-sm="12" size-md="6" size-lg="6">
+          {{f.nome}}
+        </ion-col>
+      </ion-row>
+      <ion-item>
+      </ion-item>
+    </div>
+  </ion-grid>
+</ion-content>

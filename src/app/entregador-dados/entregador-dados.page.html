@@ -1,0 +1,69 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>Seus dados</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-grid fixed>
+    <ion-row>
+      <ion-col size-xs="4" size-sm="4" size-md="2" size-lg="2">
+        <B>Nome</B>
+      </ion-col>
+      <ion-col size-xs="6" size-sm="6" size-md="4" size-lg="4" *ngIf="entregador" style="cursor: pointer;">
+        {{entregador.nome}}
+      </ion-col>
+      <ion-col size-xs="4" size-sm="4" size-md="2" size-lg="2">
+        <B>Apelido</B>
+      </ion-col>
+      <ion-col size-xs="6" size-sm="6" size-md="4" size-lg="4" *ngIf="entregador"  style="cursor: pointer;">
+        {{entregador.apelido}}
+      </ion-col>
+    </ion-row>
+
+    <ion-row>
+      <ion-col size-xs="4" size-sm="4" size-md="2" size-lg="2">
+        <B>Fone</B>
+      </ion-col>
+      <ion-col size-xs="6" size-sm="6" size-md="4" size-lg="4" *ngIf="entregador" style="cursor: pointer;">
+        ({{entregador.ddd}}) {{entregador.fone}}
+      </ion-col>
+      <ion-col size-xs="4" size-sm="4" size-md="2" size-lg="2">
+        <B>E-mail</B>
+      </ion-col>
+      <ion-col size-xs="6" size-sm="6" size-md="4" size-lg="4" *ngIf="entregador"  style="cursor: pointer;">
+        {{entregador.email}}
+      </ion-col>
+    </ion-row>
+
+    <ion-row>
+      <ion-col size-xs="4" size-sm="4" size-md="2" size-lg="2">
+        <B>Aniv</B>
+      </ion-col>
+      <ion-col size-xs="6" size-sm="6" size-md="4" size-lg="4" *ngIf="entregador" style="cursor: pointer;">
+        {{entregador.nasc}}
+      </ion-col>
+      <ion-col size-xs="4" size-sm="4" size-md="2" size-lg="2">
+        <B>CPF</B>
+      </ion-col>
+      <ion-col size-xs="6" size-sm="6" size-md="4" size-lg="4" *ngIf="entregador"  style="cursor: pointer;">
+        {{entregador.cpf}}
+      </ion-col>
+    </ion-row>
+
+    <ion-row [hidden]="entregador.idPerfil != 5">
+      <ion-col size-xs="4" size-sm="4" size-md="2" size-lg="2">
+        <B>Veículo</B>
+      </ion-col>
+      <ion-col size-xs="6" size-sm="6" size-md="4" size-lg="4" *ngIf="entregador" style="cursor: pointer;">
+        {{entregador.veiculo}}
+      </ion-col>
+      <ion-col size-xs="4" size-sm="4" size-md="2" size-lg="2">
+        <B>Placa</B>
+      </ion-col>
+      <ion-col size-xs="6" size-sm="6" size-md="4" size-lg="4" *ngIf="entregador"  style="cursor: pointer;">
+        {{entregador.placa}}
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+</ion-content>

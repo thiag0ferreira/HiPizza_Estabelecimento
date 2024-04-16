@@ -1,0 +1,39 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>Estabelecimento</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-grid fixed>
+    <ion-row>
+      <ion-col size-xs="4" size-sm="4" size-md="2" size-lg="2">
+        <B>Razão Social</B>
+      </ion-col>
+      <ion-col size-xs="6" size-sm="6" size-md="4" size-lg="4" *ngIf="estabelecimento" style="cursor: pointer;">
+        {{estabelecimento.razaoSocial}}
+      </ion-col>
+      <ion-col size-xs="4" size-sm="4" size-md="2" size-lg="2">
+        <B>Nome Fantasia</B>
+      </ion-col>
+      <ion-col size-xs="6" size-sm="6" size-md="4" size-lg="4" *ngIf="estabelecimento"  style="cursor: pointer;">
+        {{estabelecimento.fantasia}}
+      </ion-col>
+    </ion-row>
+
+    <ion-row>
+      <ion-col size-xs="4" size-sm="4" size-md="2" size-lg="2">
+        <B>Fone</B>
+      </ion-col>
+      <ion-col size-xs="6" size-sm="6" size-md="4" size-lg="4" *ngIf="estabelecimento" style="cursor: pointer;">
+        ({{estabelecimento.ddd}}) {{estabelecimento.fone}}
+      </ion-col>
+      <ion-col size-xs="4" size-sm="4" size-md="2" size-lg="2">
+        <B>Web Site</B>
+      </ion-col>
+      <ion-col size-xs="6" size-sm="6" size-md="4" size-lg="4" *ngIf="estabelecimento"  style="cursor: pointer;">
+        {{estabelecimento.website}}
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+</ion-content>

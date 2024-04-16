@@ -1,0 +1,206 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>Pedidos</ion-title>
+    <ion-select [(ngModel)]="selFiltros" slot="end" value="Colocado" multiple="true" placeholder="Filtrar pedidos" (ionChange)="mudouFiltro($event)">
+      <ion-select-option value="Colocado">Colocados</ion-select-option>
+      <ion-select-option value="Aceito">Aceitos</ion-select-option>
+      <ion-select-option value="Recusado">Recusados</ion-select-option>
+      <ion-select-option value="Cancelado">Cancelados</ion-select-option>
+      <ion-select-option value="Aberto">Abertos</ion-select-option>
+      <ion-select-option value="Devolvido">Devolvidos</ion-select-option>
+      <ion-select-option value="Finalizado">Finalizados</ion-select-option>
+      <ion-select-option value="Entregando">Em entrega</ion-select-option>
+    </ion-select>
+  </ion-toolbar>
+</ion-header>
+<ion-segment slot="end" value="pedido" (ionChange)="segmentChanged($event)">
+  <ion-segment-button value="cadastro">
+    <ion-icon name="book"></ion-icon>
+    Cadastro
+  </ion-segment-button>
+  <ion-segment-button value="pedido">
+    <ion-icon name="clipboard"></ion-icon>
+    Pedidos
+  </ion-segment-button>
+  <ion-segment-button value="welcome">
+    <ion-icon name="home"></ion-icon>
+    Início
+  </ion-segment-button>
+</ion-segment>
+
+<ion-content>
+  
+  <ion-grid fixed>
+
+
+    <ion-row *ngFor="let p of pdSelecionados; let last = last" class="sep">
+      <ion-row style="width: 100%;" id="iCab1" *ngIf="grande">
+        <ion-col size-xs="1" size-sm="1" size-md="1" size-lg="1">
+          <b>Pedido</b>{{lastou(last)}}
+        </ion-col>
+        <ion-col size-xs="2" size-sm="2" size-md="2" size-lg="2">
+          <b>Data</b>
+        </ion-col>
+        <ion-col size-xs="2" size-sm="2" size-md="2" size-lg="2">
+          <b>Status</b>
+        </ion-col>
+        <ion-col size-xs="4" size-sm="4" size-md="4" size-lg="4">
+          <b>Formas de Pagamento</b>
+        </ion-col>
+        <ion-col size-xs="2" size-sm="2" size-md="2" size-lg="2">
+          <b>Obs</b>
+          <span style="float: right; zoom: 1.5;">[<ion-icon (click)="clientePedido(p.id)" name="build-outline"></ion-icon>]</span>
+        </ion-col>
+      </ion-row>
+
+      <ion-row style="width: 100%; {{p.cor}}" *ngIf="pequeno">
+        <ion-col size-xs="3" size-sm="3" size-md="1" size-lg="1">
+          <b>Pedido</b>
+        </ion-col>
+        <ion-col size-xs="2" size-sm="2" size-md="1" size-lg="1">
+          {{p.id}}
+        </ion-col>
+        <ion-col size-xs="3" size-sm="3" size-md="1" size-lg="1">
+          <b>Status</b>
+        </ion-col>
+        <ion-col size-xs="4" size-sm="4" size-md="1" size-lg="1">
+          {{p.nomeStatus}}
+        </ion-col>
+      </ion-row>
+      <ion-row style="width: 100%; {{p.cor}}" *ngIf="pequeno">
+        <ion-col size-xs="3" size-sm="3" size-md="1" size-lg="1">
+          <b>Data</b>
+        </ion-col>
+        <ion-col size-xs="9" size-sm="9" size-md="1" size-lg="1">
+          {{p.dataHora}} R$ {{p.strTotal}}
+          <span style="float: right; zoom: 1.5;">[<ion-icon (click)="clientePedido(p.id)" name="build-outline"></ion-icon>]</span>
+        </ion-col>
+      </ion-row>
+      <ion-row style="width: 100%; {{p.cor}}" *ngIf="pequeno">
+        <ion-col size-xs="5" size-sm="5" size-md="1" size-lg="1">
+          <b>Formas Pagto</b>
+        </ion-col>
+        <ion-col size-xs="6" size-sm="6" size-md="1" size-lg="1">
+          {{p.formas}}
+        </ion-col>
+      </ion-row>
+      <ion-row style="width: 100%; {{p.cor}}" *ngIf="pequeno">
+        <ion-col size-xs="3" size-sm="3" size-md="1" size-lg="1">
+          <b>Obs</b>
+        </ion-col>
+        <ion-col size-xs="9" size-sm="9" size-md="1" size-lg="1">
+          {{p.obsTroco}}
+        </ion-col>
+      </ion-row>
+      <ion-item [hidden]="!p.isEntrega" (click)="abreModalEntregador(p.id)" style="width: 100%; cursor: pointer;" *ngIf="pequeno">
+        <ion-label style="{{p.cor}}">Entregador {{p.entregador}}</ion-label>
+      </ion-item>
+      <ion-item style="width: 100%;" *ngIf="pequeno">
+        <ion-label style="{{p.cor}}">Ítens</ion-label>
+      </ion-item>
+
+      <ion-item style="width: 100%;" [hidden]="pequeno">
+        <ion-col size-xs="1" size-sm="1" size-md="1" size-lg="1" style="width: 100%; text-align: center;">
+          {{p.id}}{{lastou(last)}}
+        </ion-col>
+        <ion-col size-xs="2" size-sm="2" size-md="2" size-lg="2">
+          {{p.dataHora}} valor: R$ {{p.strTotal}}
+        </ion-col>
+        <ion-col size-xs="2" size-sm="2" size-md="2" size-lg="2">
+          {{p.nomeStatus}}
+        </ion-col>
+        <ion-col size-xs="4" size-sm="4" size-md="4" size-lg="4">
+          {{p.formas}}
+        </ion-col>
+        <ion-col size-xs="3" size-sm="3" size-md="3" size-lg="3">
+          {{p.obsTroco}}
+        </ion-col>
+      </ion-item>
+      <ion-item [hidden]="!p.isEntrega" (click)="abreModalEntregador(p.id)" style="width: 100%; cursor: pointer;" *ngIf="grande">
+        <ion-label style="{{p.cor}}">Entregador {{p.entregador}}</ion-label>
+      </ion-item>
+
+      <ion-item *ngFor="let i of p.itens" style="width: 100%;" lines="none" [hidden]="pequeno">
+        <span style="width: 20%; background-color: lightgrey;">&nbsp;</span>
+        <span style="width: 10%; background-color: lightgrey;"><b>Qtd: </b>{{i.qtd}}</span>
+        <span style="width: 20%; background-color: lightgrey;">{{i.produto.nome}}</span>
+        <span style="width: 30%; background-color: lightgrey;">{{i.produto.descricao}}</span>
+        <span style="width: 20%; background-color: lightgrey;"><B>Total Item: </B>{{i.valor}}</span>
+        <ion-list style="width: 20%; background-color: lightgrey; padding-left: 10px;">
+          <div *ngFor="let o of i.opcoes">
+            <ion-label>{{o.nome}}</ion-label>
+          </div>
+        </ion-list>
+      </ion-item>
+      <ion-item *ngFor="let im of p.metades" style="width: 100%;" lines="none" [hidden]="pequeno">
+        <span style="width: 20%; background-color: lightgrey;">&nbsp;</span>
+        <span style="width: 10%; background-color: lightgrey;"><b>Qtd: </b>{{im.qtd}}</span>
+        <span style="width: 50%; background-color: lightgrey;">{{im.descricao1}} / {{im.descricao2}}</span>
+        <span style="width: 20%; background-color: lightgrey;"><B>Total Item: </B>{{im.valor}}</span>
+        <ion-list style="width: 20%; background-color: lightgrey; padding-left: 10px;">
+          <div *ngFor="let o2 of im.opcoes">
+            <ion-label>{{o2.nome}}</ion-label>
+          </div>
+        </ion-list>
+      </ion-item>
+
+      <div *ngFor="let i2 of p.itens" [hidden]="grande" style="width: 100%; {{p.cor}}">
+        <ion-row style="width: 100%;">
+          <ion-col size-xs="6" size-sm="6" size-md="6" size-lg="6">
+            {{i2.produto.descricao}}
+          </ion-col>
+          <ion-col size-xs="6" size-sm="6" size-md="6" size-lg="6">
+            {{i2.produto.detalhe}}
+          </ion-col>
+        </ion-row>
+        <ion-row style="width: 100%;">
+          <ion-col size-xs="2" size-sm="2" size-md="2" size-lg="2">
+            <b>Qtd</b>
+          </ion-col>
+          <ion-col size-xs="4" size-sm="4" size-md="4" size-lg="4">
+            {{i2.qtd}}
+          </ion-col>
+          <ion-col size-xs="2" size-sm="2" size-md="2" size-lg="2">
+            <B>Total</B>
+          </ion-col>
+          <ion-col size-xs="4" size-sm="4" size-md="4" size-lg="4">
+            {{i2.valor}}
+          </ion-col>
+        </ion-row>
+        <ion-row style="width: 80%;" class="cantinhos">
+          <div *ngFor="let o of i2.opcoes">
+            <ion-label>{{o.nome}}</ion-label>
+          </div>
+        </ion-row>
+      </div>
+      <div *ngFor="let i of p.metades" [hidden]="grande" style="width: 100%; {{p.cor}}">
+        <ion-row style="width: 100%;">
+          <ion-col size-xs="12" size-sm="12" size-md="6" size-lg="6">
+            {{i.descricao1}} / {{i.descricao2}}
+          </ion-col>
+        </ion-row>
+        <ion-row style="width: 100%;">
+          <ion-col size-xs="2" size-sm="2" size-md="2" size-lg="2">
+            <b>Qtd</b>
+          </ion-col>
+          <ion-col size-xs="4" size-sm="4" size-md="4" size-lg="4">
+            {{i.qtd}}
+          </ion-col>
+          <ion-col size-xs="2" size-sm="2" size-md="2" size-lg="2">
+            <B>Total</B>
+          </ion-col>
+          <ion-col size-xs="4" size-sm="4" size-md="4" size-lg="4">
+            {{i.valor}}
+          </ion-col>
+        </ion-row>
+        <ion-row style="width: 80%;" class="cantinhos">
+          <div *ngFor="let o of i.opcoes">
+            <ion-label>{{o.nome}}</ion-label>
+          </div>
+        </ion-row>
+      </div>
+      <hr>
+      <hr>
+    </ion-row>
+  </ion-grid>
+</ion-content>

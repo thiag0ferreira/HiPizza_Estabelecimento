@@ -1,0 +1,31 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>Gestão de Pedidos</ion-title>
+    <ion-button (click)="closeModal()" slot="end" fill="clear" shape="round">
+      <ion-icon slot="icon-only" name="close"></ion-icon>
+    </ion-button>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-card style="padding: 10px;">
+    Aqui você acompanha os pedidos colocados pelos clientes.
+    Você pode:
+    <ul>
+      <li>
+        <h2>Aceitar o pedido</h2>
+        Levar o pedido para ser preparado
+      </li>
+      <li>
+        <h2>Recusar o pedido</h2>
+        Não aceitar o pedido por qualquer razão. O cliente será notificado que seu pedido foi recusado. 
+        Você pode informar um motivo da recusa ou não.
+      </li>
+      <li>
+        <h2>Colocar o pedido para ser entregue</h2>
+        Você vai definir o entregador para o pedido. 
+        Você será notificado quando o pedido for entregue, ou for recusado pelo cliente.
+      </li>
+    </ul>
+  </ion-card>
+</ion-content>

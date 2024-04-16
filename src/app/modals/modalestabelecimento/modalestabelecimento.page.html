@@ -1,0 +1,23 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>Edição Estabelecimento</ion-title>
+    <ion-button (click)="closeModal()" slot="end" fill="clear" shape="round">
+      <ion-icon slot="icon-only" name="close"></ion-icon>
+    </ion-button>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="simple-form">
+  <ion-item>
+    <ion-label>Estabelecimento {{ nomStab }}</ion-label>
+  </ion-item>
+  <ion-item lines="none">
+    <ion-label>{{campoEditF}}:</ion-label>
+    <ion-input *ngIf="isNormal" type="text" [(ngModel)]="valor"></ion-input>
+    <ion-input *ngIf="isFone" id="tCelular" type="text" [(ngModel)]="valor" (keyup)="formata('tCelular','2')"></ion-input>
+    <ion-input *ngIf="isCnpj" id="cnpj" type="text" [(ngModel)]="valor" (keyup)="formataCnpj('cnpj')"></ion-input>
+    <ion-button (click)="alteraStab()" fill="clear" shape="round">
+      Alterar
+    </ion-button>
+  </ion-item>
+</ion-content>

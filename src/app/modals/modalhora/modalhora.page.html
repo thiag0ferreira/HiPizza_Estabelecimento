@@ -1,0 +1,62 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>Horar. Funcionamento</ion-title>
+    <ion-button (click)="closeModal()" slot="end" fill="clear" shape="round">
+      <ion-icon slot="icon-only" name="close"></ion-icon>
+    </ion-button>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-item style="width: 100%; text-align: center;">
+    <ion-label>Dia</ion-label>
+    <ion-select value="" [(ngModel)]="sDia">
+      <ion-select-option *ngFor="let s of semana" value="{{s.dia}}">{{s.dia}}</ion-select-option>
+    </ion-select>
+  </ion-item>
+  <ion-item style="width: 100%; text-align: center;">
+    <ion-label>A partir de</ion-label>
+  </ion-item>
+  <ion-list id="iLista">
+    <ion-item>
+      <ion-label>Hora</ion-label>
+      <ion-select value="" [(ngModel)]="sHora">
+        <ion-select-option *ngFor="let h of horas" value="{{h.hora}}">{{h.hora}}</ion-select-option>
+      </ion-select>
+    </ion-item>
+  
+    <ion-item>
+      <ion-label>Minutos</ion-label>
+      <ion-select value="" [(ngModel)]="sMinuto">
+        <ion-select-option *ngFor="let m of minutos" value="{{m.minuto}}">{{m.minuto}}</ion-select-option>
+      </ion-select>
+    </ion-item>
+  </ion-list>
+
+  <ion-item style="width: 100%; text-align: center;">
+    <ion-label>Até</ion-label>
+  </ion-item>
+  <ion-list id="iLista">
+    <ion-item>
+      <ion-label>Hora</ion-label>
+      <ion-select value="" [(ngModel)]="sHora2">
+        <ion-select-option *ngFor="let h of horas" value="{{h.hora}}">{{h.hora}}</ion-select-option>
+      </ion-select>
+    </ion-item>
+  
+    <ion-item>
+      <ion-label>Minutos</ion-label>
+      <ion-select value="" [(ngModel)]="sMinuto2">
+        <ion-select-option *ngFor="let m of minutos" value="{{m.minuto}}">{{m.minuto}}</ion-select-option>
+      </ion-select>
+    </ion-item>
+  </ion-list>
+
+  <br>
+    <div style="width: 100%; text-align: center;">
+      <ion-chip (click)="gravaHorario()" color="primary">
+        <ion-label>Gravar</ion-label>
+        <ion-icon name="checkmark-outline"></ion-icon>
+      </ion-chip>
+    </div>
+</ion-content>

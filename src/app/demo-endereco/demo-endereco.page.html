@@ -1,0 +1,265 @@
+<ion-header>
+  <ion-toolbar>
+    <img src="assets/logo_titulo.jpg" slot="start">
+    <ion-title>Endereço Meu Estabelecimento Ltda</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-item class="ion-hide-sm-down" style="padding-left: 30%; padding-right: 30%;">
+    <ion-label style="display: inline-block; width: 100px;"><b>CEP</b></ion-label>
+    <ion-input type="text" value="13000-000" id="tCep" size="9" maxlength="9" placeholder="informe cep" (keyup)="formataCep('tCep')" style="display: inline-block; width: 150px;"></ion-input>
+    <ion-chip (click)="openModal()" color="primary">
+      <ion-label>Pesquisar</ion-label>
+    </ion-chip>
+    <ion-icon name="search-outline" color="tertiary"></ion-icon>
+    <ion-badge (click)="openModal()" id="notifications-badge" color="success">?</ion-badge>
+  </ion-item>
+
+  <ion-item class="ion-hide-md-up">
+    <ion-label style="display: inline-block; width: 50px;"><b>CEP</b></ion-label>
+    <ion-label style="display: inline-block; width: 100px;">
+      <ion-input type="text" id="tCep" size="9" maxlength="9" placeholder="informe cep" (keyup)="formataCep('tCep')" style="display: inline-block; width: 150px;"></ion-input>
+    </ion-label>
+    <ion-label style="display: inline-block; width: 120px;">
+      <ion-button (click)="openModal()" fill="clear" shape="round">
+        Pesquisar
+        <ion-icon slot="endstart" name="search-outline"></ion-icon>
+      </ion-button>
+    </ion-label>
+  </ion-item>
+
+
+  <ion-item class="ion-hide-sm-down" style="padding-left: 30%; padding-right: 30%;">
+    <ion-label style="display: inline-block; width: 100px;"><b>Logradouro</b></ion-label>
+    <ion-input [hidden]="!edLog" type="text" id="tLogradouro" size="30" maxlength="40" placeholder="logradouro" style="display: inline-block; width: 150px;"></ion-input>
+    <ion-button [hidden]="edLog" (click)="mudaLog()" fill="clear">
+      [&nbsp;Rua do Meu Estabelecimento, 32&nbsp;]
+    </ion-button>
+    <ion-chip [hidden]="!edLog" color="primary" (click)="alteraEnd('tLogradouro')">
+      <ion-label>Ok</ion-label>
+      <ion-icon name="checkmark-outline"></ion-icon>
+    </ion-chip>
+    <ion-chip [hidden]="!edLog" color="danger" (click)="mudaLog()">
+      <ion-label>Cancel</ion-label>
+      <ion-icon name="close-outline"></ion-icon>
+    </ion-chip>
+  </ion-item>
+
+  <ion-item class="ion-hide-md-up">
+    <ion-label style="display: inline-block; width: 50px;"><b>Logr.</b></ion-label>
+    <ion-input [hidden]="!edLog" type="text" id="tLogradouro" size="30" maxlength="40" placeholder="logradouro" style="display: inline-block; width: 150px;"></ion-input>
+    <ion-button [hidden]="edLog" (click)="mudaLog()" fill="clear">
+      [&nbsp;Rua do Meu Estabelecimento, 32&nbsp;]
+    </ion-button>
+    <ion-chip [hidden]="!edLog" color="primary" (click)="alteraEnd('tLogradouro')">
+      <ion-icon name="checkmark-outline"></ion-icon>
+    </ion-chip>
+    <ion-chip [hidden]="!edLog" color="danger" (click)="mudaLog()">
+      <ion-icon name="close-outline"></ion-icon>
+    </ion-chip>
+  </ion-item>
+
+
+
+  <ion-item class="ion-hide-sm-down" style="padding-left: 30%; padding-right: 30%;">
+    <ion-label style="display: inline-block; width: 100px;"><b>Complemento</b></ion-label>
+    <ion-input [hidden]="!edCom" type="text" id="tComplemento" size="30" maxlength="40" placeholder="complemento" style="display: inline-block; width: 150px;"></ion-input>
+    <ion-button [hidden]="edCom" (click)="mudaCom()" fill="clear">
+      [&nbsp;Fundos&nbsp;]
+    </ion-button>
+    <ion-chip [hidden]="!edCom" color="primary" (click)="alteraEnd('tComplemento')">
+      <ion-label>Ok</ion-label>
+      <ion-icon name="checkmark-outline"></ion-icon>
+    </ion-chip>
+    <ion-chip [hidden]="!edCom" color="danger" (click)="mudaCom()">
+      <ion-label>Cancel</ion-label>
+      <ion-icon name="close-outline"></ion-icon>
+    </ion-chip>
+  </ion-item>
+
+  <ion-item class="ion-hide-md-up">
+    <ion-label style="display: inline-block; width: 50px;"><b>Compl.</b></ion-label>
+    <ion-input [hidden]="!edCom" type="text" id="tComplemento" size="30" maxlength="40" placeholder="complemento" style="display: inline-block; width: 150px;"></ion-input>
+    <ion-button [hidden]="edCom" (click)="mudaCom()" fill="clear">
+      [&nbsp;Fundos&nbsp;]
+    </ion-button>
+    <ion-chip [hidden]="!edCom" color="primary" (click)="alteraEnd('tComplemento')">
+      <ion-icon name="checkmark-outline"></ion-icon>
+    </ion-chip>
+    <ion-chip [hidden]="!edCom" color="danger" (click)="mudaCom()">
+      <ion-icon name="close-outline"></ion-icon>
+    </ion-chip>
+  </ion-item>
+
+
+  <ion-item class="ion-hide-sm-down" style="padding-left: 30%; padding-right: 30%;">
+    <ion-label style="display: inline-block; width: 100px;"><b>Número</b></ion-label>
+    <ion-input [hidden]="!edNum" type="text" id="tNumero" size="5" maxlength="7" placeholder="numero" style="display: inline-block; width: 150px;"></ion-input>
+    <ion-button [hidden]="edNum" (click)="mudaNum()" fill="clear">
+      [&nbsp;32&nbsp;]
+    </ion-button>
+    <ion-chip [hidden]="!edNum" color="primary" (click)="alteraEnd('tNumero')">
+      <ion-label>Ok</ion-label>
+      <ion-icon name="checkmark-outline"></ion-icon>
+    </ion-chip>
+    <ion-chip [hidden]="!edNum" color="danger" (click)="mudaNum()">
+      <ion-label>Cancel</ion-label>
+      <ion-icon name="close-outline"></ion-icon>
+    </ion-chip>
+  </ion-item>
+
+  <ion-item class="ion-hide-md-up">
+    <ion-label style="display: inline-block; width: 50px;"><b>Nº</b></ion-label>
+    <ion-input [hidden]="!edNum" type="text" id="tNumero" size="5" maxlength="7" placeholder="numero" style="display: inline-block; width: 150px;"></ion-input>
+    <ion-button [hidden]="edNum" (click)="mudaNum()" fill="clear">
+      [&nbsp;32&nbsp;]
+    </ion-button>
+    <ion-chip [hidden]="!edNum" color="primary" (click)="alteraEnd('tNumero')">
+      <ion-label>Ok</ion-label>
+      <ion-icon name="checkmark-outline"></ion-icon>
+    </ion-chip>
+    <ion-chip [hidden]="!edNum" color="danger" (click)="mudaNum()">
+      <ion-label>Cancel</ion-label>
+      <ion-icon name="close-outline"></ion-icon>
+    </ion-chip>
+  </ion-item>
+
+
+
+  <ion-item class="ion-hide-sm-down" style="padding-left: 30%; padding-right: 30%;">
+    <ion-label style="display: inline-block; width: 100px;"><b>Bairro</b></ion-label>
+    <ion-input [hidden]="!edBai" type="text" id="tNumero" size="20" maxlength="30" placeholder="bairro" style="display: inline-block; width: 150px;"></ion-input>
+    <ion-button [hidden]="edBai" (click)="mudaBai()" fill="clear">
+      [&nbsp;Meu Bairro&nbsp;]
+    </ion-button>
+    <ion-chip [hidden]="!edBai" color="primary" (click)="alteraEnd('tBairro')">
+      <ion-label>Ok</ion-label>
+      <ion-icon name="checkmark-outline"></ion-icon>
+    </ion-chip>
+    <ion-chip [hidden]="!edBai" color="danger" (click)="mudaBai()">
+      <ion-label>Cancel</ion-label>
+      <ion-icon name="close-outline"></ion-icon>
+    </ion-chip>
+  </ion-item>
+
+  <ion-item class="ion-hide-md-up">
+    <ion-label style="display: inline-block; width: 50px;"><b>Bairro</b></ion-label>
+    <ion-input [hidden]="!edBai" type="text" id="tNumero" size="20" maxlength="30" placeholder="bairro" style="display: inline-block; width: 150px;"></ion-input>
+    <ion-button [hidden]="edBai" (click)="mudaBai()" fill="clear">
+      [&nbsp;Meu Bairro&nbsp;]
+    </ion-button>
+    <ion-chip [hidden]="!edBai" color="primary" (click)="alteraEnd('tBairro')">
+      <ion-icon name="checkmark-outline"></ion-icon>
+    </ion-chip>
+    <ion-chip [hidden]="!edBai" color="danger" (click)="mudaBai()">
+      <ion-icon name="close-outline"></ion-icon>
+    </ion-chip>
+  </ion-item>
+
+
+  <ion-item class="ion-hide-sm-down" style="padding-left: 30%; padding-right: 30%;">
+    <ion-label style="display: inline-block; width: 100px;"><b>Cidade</b></ion-label>
+    <ion-input [hidden]="!edCid" type="text" id="tCidade" size="20" maxlength="30" placeholder="cidade" style="display: inline-block; width: 150px;"></ion-input>
+    <ion-button [hidden]="edCid" (click)="mudaCid()" fill="clear">
+      [&nbsp;Minha Cidade&nbsp;]
+    </ion-button>
+    <ion-chip [hidden]="!edCid" color="primary" (click)="alteraEnd('tCidade')">
+      <ion-label>Ok</ion-label>
+      <ion-icon name="checkmark-outline"></ion-icon>
+    </ion-chip>
+    <ion-chip [hidden]="!edCid" color="danger" (click)="mudaCid()">
+      <ion-label>Cancel</ion-label>
+      <ion-icon name="close-outline"></ion-icon>
+    </ion-chip>
+  </ion-item>
+
+  <ion-item class="ion-hide-md-up">
+    <ion-label style="display: inline-block; width: 50px;"><b>Cidade</b></ion-label>
+    <ion-input [hidden]="!edCid" type="text" id="tCidade" size="20" maxlength="30" placeholder="cidade" style="display: inline-block; width: 150px;"></ion-input>
+    <ion-button [hidden]="edCid" (click)="mudaCid()" fill="clear">
+      [&nbsp;Minha Cidade&nbsp;]
+    </ion-button>
+    <ion-chip [hidden]="!edCid" color="primary" (click)="alteraEnd('tCidade')">
+      <ion-icon name="checkmark-outline"></ion-icon>
+    </ion-chip>
+    <ion-chip [hidden]="!edCid" color="danger" (click)="mudaCid()">
+      <ion-icon name="close-outline"></ion-icon>
+    </ion-chip>
+  </ion-item>
+
+
+  <ion-item class="ion-hide-md-up">
+    <ion-label style="display: inline-block; width: 50px;"><b>UF</b></ion-label>
+    <ion-select [hidden]="!edEst" value="PI" placeholder="estado">
+      <ion-select-option value="PI">PI</ion-select-option>
+    </ion-select>
+    <ion-button [hidden]="edEst" (click)="mudaEst()" fill="clear">
+      [&nbsp;PI&nbsp;]
+    </ion-button>
+    <ion-chip [hidden]="!edEst" color="primary" (click)="alteraEnd('tEstado')">
+      <ion-icon name="checkmark-outline"></ion-icon>
+    </ion-chip>
+    <ion-chip [hidden]="!edEst" color="danger" (click)="mudaEst()">
+      <ion-icon name="close-outline"></ion-icon>
+    </ion-chip>
+  </ion-item>
+
+  <ion-item class="ion-hide-sm-down" style="padding-left: 30%; padding-right: 30%;">
+    <ion-label style="display: inline-block; width: 100px;"><b>Estado</b></ion-label>
+    <ion-select [hidden]="!edEst" value="PI" placeholder="estado">
+      <ion-select-option value="PI">PI</ion-select-option>
+    </ion-select>
+    <ion-button [hidden]="edEst" (click)="mudaEst()" fill="clear">
+      [&nbsp;PI&nbsp;]
+    </ion-button>
+    <ion-chip [hidden]="!edEst" color="primary" (click)="alteraEnd('tEstado')">
+      <ion-label>Ok</ion-label>
+      <ion-icon name="checkmark-outline"></ion-icon>
+    </ion-chip>
+    <ion-chip [hidden]="!edEst" color="danger" (click)="mudaEst()">
+      <ion-label>Cancel</ion-label>
+      <ion-icon name="close-outline"></ion-icon>
+    </ion-chip>
+  </ion-item>
+
+  <ion-item class="ion-hide-sm-down" style="padding-left: 30%; padding-right: 30%;">
+    <ion-label style="display: inline-block; width: 100px;"><b>Referência</b></ion-label>
+    <ion-input [hidden]="!edRef" type="text" id="tReferencia" size="20" maxlength="30" placeholder="referência" style="display: inline-block; width: 150px;"></ion-input>
+    <ion-button [hidden]="edRef" (click)="mudaRef()" fill="clear">
+      [&nbsp;Perto da Delegacia&nbsp;]
+    </ion-button>
+    <ion-chip [hidden]="!edRef" color="primary" (click)="alteraEnd('tReferencia')">
+      <ion-label>Ok</ion-label>
+      <ion-icon name="checkmark-outline"></ion-icon>
+    </ion-chip>
+    <ion-chip [hidden]="!edRef" color="danger" (click)="mudaRef()">
+      <ion-label>Cancel</ion-label>
+      <ion-icon name="close-outline"></ion-icon>
+    </ion-chip>
+  </ion-item>
+
+  <ion-item class="ion-hide-md-up">
+    <ion-label style="display: inline-block; width: 50px;"><b>Refer</b></ion-label>
+    <ion-input [hidden]="!edRef" type="text" id="tReferencia" size="20" maxlength="30" placeholder="referência" style="display: inline-block; width: 150px;"></ion-input>
+    <ion-button [hidden]="edRef" (click)="mudaRef()" fill="clear">
+      [&nbsp;Perto da Delegacia&nbsp;]
+    </ion-button>
+    <ion-chip [hidden]="!edRef" color="primary" (click)="alteraEnd('tReferencia')">
+      <ion-label>Ok</ion-label>
+      <ion-icon name="checkmark-outline"></ion-icon>
+    </ion-chip>
+    <ion-chip [hidden]="!edRef" color="danger" (click)="mudaRef()">
+      <ion-label>Cancel</ion-label>
+      <ion-icon name="close-outline"></ion-icon>
+    </ion-chip>
+  </ion-item>
+
+  <br>
+    <div style="width: 100%; text-align: center;">
+      <ion-button (click)="openModal()" color="secondary" shape="round">
+        Salvar
+      </ion-button>
+      <ion-badge (click)="openModal()" id="notifications-badge" color="success">?</ion-badge>
+    </div>
+</ion-content>

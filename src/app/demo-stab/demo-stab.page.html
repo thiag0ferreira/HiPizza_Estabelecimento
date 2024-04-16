@@ -1,0 +1,142 @@
+<ion-header>
+  <ion-toolbar>
+    <img src="assets/logo_titulo.jpg" slot="start">
+    <ion-menu-button slot="start"></ion-menu-button>
+    <h3 style="padding-left: 10px;">{{razao}}</h3>
+  </ion-toolbar>
+</ion-header>
+<ion-segment slot="end" value="cadastro" (ionChange)="segmentChanged($event)">
+  <ion-segment-button value="cadastro">
+    <ion-icon name="book"></ion-icon>
+    Cadastro
+  </ion-segment-button>
+  <ion-segment-button value="pedido">
+    <ion-icon name="clipboard"></ion-icon>
+    Pedidos
+  </ion-segment-button>
+  <ion-segment-button value="welcome">
+    <ion-icon name="home"></ion-icon>
+    Início
+  </ion-segment-button>
+</ion-segment>
+
+<ion-content>
+  <ion-grid fixed>
+    <ion-row>
+      <ion-col size-xs="4" size-sm="4" size-md="2" size-lg="2">
+        <B>Razão Social</B>
+      </ion-col>
+      <ion-col size-xs="6" size-sm="6" size-md="4" size-lg="4" (click)="editar('razao')" style="cursor: pointer;">
+        Meu Estabelecimento Ltda
+      </ion-col>
+      <ion-col size-xs="4" size-sm="4" size-md="2" size-lg="2">
+        <B>Nome Fantasia</B>
+      </ion-col>
+      <ion-col size-xs="6" size-sm="6" size-md="4" size-lg="4" (click)="editar('fantasia')" style="cursor: pointer;">
+        Meu Estabelecimento
+      </ion-col>
+    </ion-row>
+
+    <ion-row>
+      <ion-col size-xs="4" size-sm="4" size-md="2" size-lg="2">
+        <B>Website</B>
+      </ion-col>
+      <ion-col size-xs="6" size-sm="6" size-md="4" size-lg="4" (click)="editar('site')" style="cursor: pointer;">
+        meuestabelecimento.com.br
+      </ion-col>
+      <ion-col size-xs="4" size-sm="4" size-md="2" size-lg="2">
+        <B>E-mail</B>
+      </ion-col>
+      <ion-col size-xs="6" size-sm="6" size-md="4" size-lg="4" (click)="editar('email')" style="cursor: pointer;">
+        fulano@meuestabelecimento.com.br
+      </ion-col>
+    </ion-row>
+
+    <ion-row>
+      <ion-col size-xs="4" size-sm="4" size-md="2" size-lg="2">
+        <B>Contato</B>
+      </ion-col>
+      <ion-col size-xs="6" size-sm="6" size-md="4" size-lg="4" (click)="editar('contato')" style="cursor: pointer;">
+        Fulano de Tal
+      </ion-col>
+      <ion-col size-xs="4" size-sm="4" size-md="2" size-lg="2">
+        <B>Cargo</B>
+      </ion-col>
+      <ion-col size-xs="6" size-sm="6" size-md="4" size-lg="4" (click)="editar('cargo')" style="cursor: pointer;">
+        Diretor
+      </ion-col>
+    </ion-row>
+
+    <ion-row>
+      <ion-col size-xs="4" size-sm="4" size-md="2" size-lg="2">
+        <B class="ion-hide-sm-down">Departamento</B><B class="ion-hide-md-up">Depto</B>
+      </ion-col>
+      <ion-col size-xs="6" size-sm="6" size-md="4" size-lg="4" (click)="editar('depto')" style="cursor: pointer;">
+        Marketing
+      </ion-col>
+      <ion-col size-xs="4" size-sm="4" size-md="2" size-lg="2">
+        <B>Fone</B>
+      </ion-col>
+      <ion-col size-xs="6" size-sm="6" size-md="4" size-lg="4" (click)="editar('fonContato')" style="cursor: pointer;">
+        (11) 9 3220-8522
+      </ion-col>
+    </ion-row>
+
+    <ion-row>
+      <ion-col size-xs="4" size-sm="4" size-md="2" size-lg="2">
+        <B>CNPJ</B>
+      </ion-col>
+      <ion-col size-xs="6" size-sm="6" size-md="4" size-lg="4" (click)="editar('cnpj')" style="cursor: pointer;">
+        99.999.999/0001-99
+      </ion-col>
+      <ion-col size-xs="4" size-sm="4" size-md="2" size-lg="2">
+        <B>Inscrição Estadual</B>
+      </ion-col>
+      <ion-col size-xs="6" size-sm="6" size-md="4" size-lg="4" (click)="editar('ie')" style="cursor: pointer;">
+        Isento
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+
+  <p></p>
+  <p>
+  </p>
+  <div style="width: 100%; text-align: center;">
+    Horários de Funcionamento<span (click)="maisHora()" style="float: right; padding-right: 50px; cursor: pointer;">
+      <ion-icon slot="icon-only" ios="call-outline" md="duplicate-outline" item-right></ion-icon>
+      <ion-badge id="notifications-badge" color="success" (click)="openModal()">?</ion-badge>
+    </span>
+  </div>
+  <ion-list id="iLista">
+    <ion-item-sliding>
+      <ion-item>
+        <ion-label>Terça-feira: 18:00 às 22:30</ion-label>
+      </ion-item>
+      <ion-item-options side="end" id="idOp">
+        <ion-item-option color="danger">
+          <ion-icon name="trash-outline" style="zoom:2.0;" (click)="apagaHorario(h.id)"></ion-icon>
+        </ion-item-option>
+      </ion-item-options>
+    </ion-item-sliding>
+    <ion-item-sliding>
+      <ion-item>
+        <ion-label>Quarta-feira: 10:00 às 13:30</ion-label>
+      </ion-item>
+      <ion-item-options side="end" id="idOp">
+        <ion-item-option color="danger">
+          <ion-icon name="trash-outline" style="zoom:2.0;" (click)="apagaHorario(h.id)"></ion-icon>
+        </ion-item-option>
+      </ion-item-options>
+    </ion-item-sliding>
+    <ion-item-sliding>
+      <ion-item>
+        <ion-label>Quarta-feira: 18:00 às 23:30</ion-label>
+      </ion-item>
+      <ion-item-options side="end" id="idOp">
+        <ion-item-option color="danger">
+          <ion-icon name="trash-outline" style="zoom:2.0;" (click)="apagaHorario(h.id)"></ion-icon>
+        </ion-item-option>
+      </ion-item-options>
+    </ion-item-sliding>
+  </ion-list>
+</ion-content>

@@ -1,0 +1,28 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>Editar Produto</ion-title>
+    <ion-button (click)="closeModal()" slot="end" fill="clear" shape="round">
+      <ion-icon slot="icon-only" name="close"></ion-icon>
+    </ion-button>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="simple-form">
+  <ion-item>
+    <ion-label style="width: 20%;">Nome</ion-label>
+    <ion-input [(ngModel)]="descricaoProduto" type="text" placeholder="nome do protudo"></ion-input>
+  </ion-item>
+
+  <ion-item>
+    <ion-label style="width: 20%;">Detalhe</ion-label>
+    <ion-input [(ngModel)]="detalheProduto" type="text" placeholder="detalhe do protudo"></ion-input>
+  </ion-item>
+
+  <ion-item>
+    <div style="width: 100%; text-align: center;">
+      <ion-button (click)="alteraProduto()" color="tertiary" shape="round">
+        Gravar
+      </ion-button>
+    </div>
+  </ion-item>
+</ion-content>

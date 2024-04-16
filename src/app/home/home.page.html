@@ -1,0 +1,88 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-title style="font-size: medium;">
+      Bem-vindo ao 
+      HiPizza Estabelecimentos
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+  <ion-header collapse="condense">
+    <ion-toolbar>
+      <ion-title size="large">Hi Pizza</ion-title>
+    </ion-toolbar>
+  </ion-header>
+  
+  <div id="container">
+    <img src="assets/HiPizzaLogo.png">
+    <br>
+    <strong>Você sempre presente</strong>
+    <br>
+    <br>
+    <p>Vamos fazer seu cadastro ?</p>
+    <br>
+    <div style="width: 100%; text-align: center;">
+      <ion-button (click)="cadastroBasico()" color="tertiary" shape="round">
+        Sim, quero me cadastrar
+      </ion-button>
+    </div>
+
+    <br>
+    <div style="width: 100%; text-align: center;">
+      <ion-button (click)="cadastrado()" color="tertiary" shape="round">
+        Já sou cadastrado
+      </ion-button>
+    </div>
+
+    <br>
+    <div style="width: 100%; text-align: center;">
+      <ion-button (click)="cadastrar()" color="secondary" shape="round">
+        Sobre o HiPizza
+      </ion-button>
+    </div>
+    
+    <br>
+    <div style="width: 100%; text-align: center;">
+      <ion-button (click)="loginEntregador()" color="secondary" shape="round">
+        Sou Entregador
+      </ion-button>
+    </div>
+    
+    <br>
+    <div style="width: 100%; text-align: center;">
+      <ion-button (click)="loginAtendente()" color="secondary" shape="round">
+        Sou Atendente
+      </ion-button>
+    </div>
+    
+        <br>
+        <div style="width: 100%; text-align: center;" [hidden]="!souCad">
+          <ion-button (click)="goMenu()" color="dark" shape="round">
+            Menu
+          </ion-button>
+        </div>
+
+        <br>
+        <div style="width: 100%; text-align: center;">
+          <ion-button (click)="mudaServ()" color="dark" shape="round">
+            {{serv}}
+          </ion-button>
+        </div>
+    
+        <br>
+        <div style="width: 100%; text-align: center;">
+          <ion-button (click)="welcome()" color="dark" shape="round">
+            Welcome
+          </ion-button>
+        </div>
+    
+        <br>
+        <div style="width: 100%; text-align: center;">
+          <ion-button (click)="removerCadastro()" color="danger" shape="round">
+            Remover Cadastro
+          </ion-button>
+        </div>
+    
+          </div>
+</ion-content>

@@ -1,0 +1,26 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>Forma de Pagamento</ion-title>
+    <ion-button (click)="closeModal()" slot="end" fill="clear" shape="round">
+      <ion-icon slot="icon-only" name="close"></ion-icon>
+    </ion-button>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-list>
+    <ion-item>
+      <ion-label><b>Forma: </b></ion-label>
+      <ion-select [(ngModel)]="formaSelecionada" value="" placeholder="escolha">
+        <ion-select-option *ngFor="let f of formas" value="{{f.id}}">{{f.nome}}</ion-select-option>
+      </ion-select>
+    </ion-item>
+
+    <ion-item>
+      <ion-chip (click)="poeForma()" color="primary">
+        <ion-label>Incluir</ion-label>
+        <ion-icon name="checkmark-outline"></ion-icon>
+      </ion-chip>
+    </ion-item>
+  </ion-list>
+</ion-content>

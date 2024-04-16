@@ -1,0 +1,18 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>Entregador: {{tNome}}</ion-title>
+    <ion-icon (click)="goEntregadores()" slot="end" name="bicycle-outline" color="primary" style="padding-right: 10px;"></ion-icon>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-list [ngClass]="grande ? 'espacoGrande' : 'espacoPequeno'">
+    <ion-item *ngFor="let l of logsEntrega" (click)="pegoLog(l.id)">
+      <ion-label>
+        <h1>Pedido {{l.idPedido}}</h1>
+        <h2>Situação: {{l.nomeAcao}}</h2>
+        <p>Obs.: {{l.obs}}</p>
+      </ion-label>
+    </ion-item>
+  </ion-list>
+</ion-content>

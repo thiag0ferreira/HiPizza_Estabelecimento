@@ -1,0 +1,18 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>{{titulo}}</ion-title>
+    <ion-button (click)="closeModal()" slot="end" fill="clear" shape="round">
+      <ion-icon slot="icon-only" name="close"></ion-icon>
+    </ion-button>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="simple-form">
+  <ion-item>
+    <ion-label>{{label}}</ion-label>
+    <ion-input [(ngModel)]="valor" type="text" placeholder="{{dica}}" (keyup)="trata()"></ion-input>
+    <ion-button (click)="processa()" fill="clear" shape="round">
+      {{txBotao}}
+    </ion-button>
+  </ion-item>
+</ion-content>

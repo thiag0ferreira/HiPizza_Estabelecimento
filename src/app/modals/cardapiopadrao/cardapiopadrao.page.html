@@ -1,0 +1,27 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>Cardápio Padrão</ion-title>
+    <ion-chip color="tertiary" (click)="importaProdutos()">
+      <ion-label>importar</ion-label>
+      <ion-icon name="checkmark" color="tertiary"></ion-icon>
+    </ion-chip>
+    <ion-button (click)="closeModal()" slot="end" fill="clear" shape="round">
+      <ion-icon slot="icon-only" name="close"></ion-icon>
+    </ion-button>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-list *ngFor="let p of produtos">
+    <ion-item>
+      <ion-label>
+        <B>{{p.tipo.nome}}</B>
+        <h4>{{p.descricao}}</h4>
+        {{p.detalhe}}
+      </ion-label>
+      <ion-checkbox id="k{{p.id}}" slot="end" (click)="marcar(p.id)"></ion-checkbox>
+    </ion-item>
+  </ion-list>
+</ion-content>
+<div [ngClass]="{ 'escondeDoPequeno': pequeno, 'mostraNoGrande': grande }">
+</div>

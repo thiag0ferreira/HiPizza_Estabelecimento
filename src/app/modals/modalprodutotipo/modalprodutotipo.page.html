@@ -1,0 +1,47 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>Editar Tipo</ion-title>
+    <ion-button (click)="closeModal()" slot="end" fill="clear" shape="round">
+      <ion-icon slot="icon-only" name="close"></ion-icon>
+    </ion-button>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="simple-form">
+  <ion-item>
+    <ion-label>Nome</ion-label>
+    <ion-input [(ngModel)]="nomeTipo" type="text" placeholder="tipo"></ion-input>
+  </ion-item>
+
+  <ion-item>
+    <ion-list>
+      <ion-radio-group name="auto" value="0" [(ngModel)]="meio">
+        <ion-list-header>
+          <ion-label>Opção meio a meio</ion-label>
+        </ion-list-header>
+        <ion-item>
+          <ion-label>Sim</ion-label>
+          <ion-radio value="1"></ion-radio>
+        </ion-item>
+        <ion-item>
+          <ion-label>Não</ion-label>
+          <ion-radio value="0"></ion-radio>
+        </ion-item>
+      </ion-radio-group>
+    </ion-list>
+  </ion-item>
+
+  <ion-item>
+    <br>
+    <div style="width: 100%; text-align: center;">
+      <ion-chip color="primary" (click)="alteraTipo()">
+        <ion-label>Alterar</ion-label>
+        <ion-icon name="checkmark-outline" color="warning"></ion-icon>
+      </ion-chip>
+      <ion-chip color="primary" (click)="apagaTipo()">
+        <ion-label>Apagar</ion-label>
+        <ion-icon name="close" color="danger"></ion-icon>
+      </ion-chip>
+    </div>
+  </ion-item>
+</ion-content>
